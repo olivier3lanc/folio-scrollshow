@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Scrollshow</title>
+
+    <!-- Framework + template -->
+    <link href="css/starter.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="scrollshow">
+        <div class="item" data-scene="01">
+            <h2>L’immersion ultime</h2>
+            <p>Créez de superbes panoramas, visites virtuelles et vidéos 360° qui poutrent.</p>
+            <p>Bon maintenant scrollez... ⇣</p>
+        </div>
+        <div class="item" data-scene="01">
+            <h2>Qui est Kolor?</h2>
+            <p>Fondée en 2004 par Alexandre Jenny et Lionel Laissus, Kolor a été la première entreprise à percevoir le potentiel de la technologie SIFT dans l’identification de points d’intérêts dans une image, et a créé ce qui deviendra le logiciel de référence dans l’assemblage d’images : Autopano.</p>
+        </div>
+        <div class="item" data-scene="02">
+            <h2>Une team de ouf!</h2>
+            <p>L’équipe de Kolor est composée des meilleurs experts mondiaux dans les technologies d’assemblage d’images et de vidéo. Nous pouvons piloter des projets entiers où l’assemblage d’images est nécessaire, ou intervenir dans des parties de projets. Contactez-nous maintenant pour discuter de vos besoins</p>
+            <p><a href="#" class="link-button">Découvrir l'expertise Kolor</a></p>
+        </div>
+        <div class="item" data-scene="02">
+            <h2>Liked it?</h2>
+            <p><a href="#" class="link-button">Restart now</a></p>
+        </div>
+        <div class="overlay"></div>
+    </div>
+
+    <div id="container"></div>
+    <!-- Include the threejs custom build -->
+    <script src="libraries/three.js/three.r86.custom.min.js"></script>
+
+    <!-- Include the Hammer.js library -->
+    <script src="libraries/hammer.js/hammer.min.js"></script>
+
+    <!-- Include the ForgeJS library -->
+    <script type="text/javascript" src="libraries/forge/forge.min.0.9.5.js"></script>
+
+    <!-- Start ForgeJS -->
+    <script type="text/javascript">
+        // Create a viewer
+        var viewer = new FORGE.Viewer("container", "config.json");
+    </script>
+
+    <!-- Shortapi for ForgeJS -->
+    <script type="text/javascript" src="libraries/forge/shortapi.js"></script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="libraries/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="libraries/scrollshow.js/scrollshow.js"></script>
+    <script type="text/javascript">
+        jQuery.fn.scrollshow();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+// Core SASS framework
+// @import 'framework/core/_core';
+@import 'quikster';
+// Components
+@import 'components/_fonts';
+@import 'components/_links';
+
+body {
+    -webkit-font-smoothing: antialiased;
+    #container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    #scrollshow {
+        overflow: auto;
+        &>.overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+            background-color: #bf873b;
+            // background: qtr-color(); /* Old browsers */
+            // background: -moz-radial-gradient(center, ellipse cover, qtr-color() 0%, qtr-color(-2) 100%); /* FF3.6-15 */
+            // background: -webkit-radial-gradient(center, ellipse cover, qtr-color() 0%,qtr-color(-2) 100%); /* Chrome10-25,Safari5.1-6 */
+            // background: radial-gradient(ellipse at center, qtr-color() 0%,qtr-color(-2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='qtr-color()', endColorstr='qtr-color(-2)',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            opacity: 0.8;
+            transition: all 2000ms;
+            &.color2 {
+                background-color: qtr-color(-6);
+            }
+            &.color3 {
+                background-color: qtr-color();
+            }
+            &.color4 {
+                background-color: qtr-color(2);
+            }
+        }
+        &>.item {
+            opacity: 0;
+            box-sizing: border-box;
+            text-align: center;
+            position: fixed;
+            top: 100%;
+            width: 100%;
+            transition: all 800ms;
+            will-change: transform, opacity, letter-spacing, text-shadow;
+            transition-timing-function: linear;
+            transform: translateY(-200%) scale(0);
+            z-index: 10;
+            color: qtr-color(6);
+            pointer-events: none;
+            &.active {
+                transform: translateY(-50%) scale(1);
+                z-index: 100;
+                top: 50%;
+                opacity: 1;
+                transition: all 200ms;
+                pointer-events: auto;
+            }
+            &>h1,
+            &>h2,
+            &>h3,
+            &>h4 {
+                padding: 0em 60px;
+                margin: auto;
+                margin-bottom: 60px;
+            }
+            &>p {
+                max-width: 500px;
+                margin: 50px auto;
+                line-height: 1.5em;
+            }
+            //Letters
+            &>*:first-child,
+            &>.scroll {
+                .letter {
+                    position: relative;
+                    margin-left: -0.1em;
+                    display: inline-block;
+                    transition: all 300ms;
+                    text-shadow: 0px 0px 10px rgba(qtr-color(-4),0.6);
+                    opacity: 0.2;
+                    &.active,
+                    &:first-child {
+                        opacity: 1;
+                        text-shadow: 5px 11px 20px rgba(qtr-color(-4),0.6);
+                    }
+                }
+            }
+        }
+
+        &>.navigation {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1;
+            //Item
+            &>a {
+                display: block;
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+                border: 2px solid qtr-color(6);
+                box-sizing: border-box;
+                margin-bottom: 40px;
+                position: relative;
+                //Fill effect
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0%;
+                    transition: all 0ms;
+                    background-color: qtr-color(6);
+                    pointer-events: none;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                &:first-child {
+                    background-color: qtr-color(6);
+                    &>.progress {
+                        display: block;
+                        position: absolute;
+                        top: 0px;
+                        left: 2px;
+                        width: 4px;
+                        background-color: qtr-color(6);
+                        pointer-events: none;
+                        border-radius: 4px;
+                    }
+                }
+                //Read item
+                &.active {
+                    &:after {
+                        height: 100%;
+                        transition: all 800ms;
+                    }
+                }
+            }
+        }
+    }
+}
